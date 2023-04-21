@@ -2,7 +2,7 @@
 
 cy-auto is an easy-to-use npm package that helps QA testers to write better automated tests using Cypress by adding custom data-cy attributes to all elements of an HTML file. These attributes provide a simple way to reference elements in a browser, making it easier to write and maintain tests.
 
-With cy-auto, front-end developers can generate unique data-cy tags to all elements apart from the ones listed in the ignored tags with having to manually add them. Additionally, you can add or remove tags to be ignored to ensure that only the relevant elements are targeted.
+With cy-auto, front-end developers can generate unique data-cy tags to all elements apart from the ones listed in the ignored tags without having to manually add them. Additionally, you can add or remove tags to be ignored to ensure that only the relevant elements are targeted.
 
 cy-auto is designed to be simple and straightforward, with commands that are easy to use even for those who are not familiar with Cypress. It is an excellent tool for those who want to improve their testing process by making it more efficient and accurate.
 
