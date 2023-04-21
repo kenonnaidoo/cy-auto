@@ -4,6 +4,8 @@ cy-auto is an easy-to-use npm package that helps QA testers to write better auto
 
 With cy-auto, front-end developers can generate unique data-cy tags to all elements apart from the ones listed in the ignored tags without having to manually add them. Additionally, you can add or remove tags to be ignored to ensure that only the relevant elements are targeted.
 
+cy-auto makes use of [uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier) to assign unique data-cy attributes to elements.
+
 cy-auto is designed to be simple and straightforward, with commands that are easy to use even for those who are not familiar with Cypress. It is an excellent tool for those who want to improve their testing process by making it more efficient and accurate.
 
 If you're looking to improve your testing process and make it more efficient, cy-auto is an excellent tool to add to your toolkit.
