@@ -8,7 +8,7 @@ cy-auto is designed to be simple and straightforward, with commands that are eas
 
 If you're looking to improve your testing process and make it more efficient, cy-auto is an excellent tool to add to your toolkit.
 
-# Please note
+## Requirements
 Node version 14 and higher is required
 
 ## Installation
