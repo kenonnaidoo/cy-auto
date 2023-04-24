@@ -7,6 +7,10 @@ With cy-auto, front-end developers can generate unique [uuid](https://en.wikiped
 cy-auto is designed to be simple and straightforward, with commands that are easy to use even for those who are not familiar with Cypress. It is an excellent tool for those who want to improve their testing process by making it more efficient and accurate.
 
 If you're looking to improve your testing process and make it more efficient, cy-auto is an excellent tool to add to your toolkit.
+
+# Please note
+Node version 14 and higher is required
+
 ## Installation
 
 To install globally, use:
@@ -50,9 +54,6 @@ To remove from the tags that won't receive data-cy tags, use:
 ```bash
 cy-auto remove <TAG>
 ```
-
-# Please note
-Node version 14 and higher is required
 
 ## Contributing
 
