@@ -51,6 +51,9 @@ To remove from the tags that won't receive data-cy tags, use:
 cy-auto remove <TAG>
 ```
 
+# Please note
+Node version 14 and higher is required
+
 ## Contributing
 
 If you find any issues or have suggestions for improvement, please feel free to create an issue or a pull request in the [cy-auto GitHub repository](https://github.com/kenonnaidoo/cy-auto).
