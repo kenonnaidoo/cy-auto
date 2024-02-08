@@ -2,7 +2,6 @@ const {program} = require("commander");
 const fs = require("fs");
 const cheerio = require("cheerio")
 const uuid = require("uuid");
-const prettier = require("prettier");
 //import getIgnoredTags function
 const { getIgnoredTags } = require("../utils/common");
 //addDataTags command
@@ -28,7 +27,7 @@ function addDataTags(args){
     }
     let html = fs.readFileSync(path, 'utf-8');
     // Load the HTML string into cheerio
-    const $ = cheerio.load(html, { xmlMode: true });
+    const $ = cheerio.load(html, { xmlMode: true, decodeEntities: false });
     // Find all elements in the HTML tree
     const elements = $('*');
     // Get the list of ignored tags from the conf.json file
@@ -46,10 +45,8 @@ function addDataTags(args){
     let updatedHtml = $.html();
     // Replace attributes with empty values (="" or ='')
     updatedHtml = updatedHtml.replace(/=('|")\1/g, ' ');
-    //format the HTML string
-    const formatted = prettier.format(updatedHtml, { parser: 'html' });
     // Write the updated HTML back to the file
-    fs.writeFileSync(path, formatted, 'utf-8');
+    fs.writeFileSync(path, updatedHtml, 'utf-8');
 }
 // export addDataTags function
 module.exports = addDataTags;

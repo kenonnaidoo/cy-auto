@@ -1,0 +1,19 @@
+{
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 120,
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    },
+    {
+      "files": "*.vue",
+      "options": {
+        "printWidth": 120,
+        "htmlWhitespaceSensitivity": "ignore",
+        "parser": "vue"
+      }
+    }
+  ]
+}
