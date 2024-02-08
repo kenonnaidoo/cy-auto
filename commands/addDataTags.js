@@ -1,6 +1,6 @@
 const {program} = require("commander");
 const fs = require("fs");
-const {JSDOM} = require("jsdom");
+const cheerio = require("cheerio")
 const uuid = require("uuid");
 const prettier = require("prettier");
 //import getIgnoredTags function
@@ -27,23 +27,27 @@ function addDataTags(args){
         process.exit(1);
     }
     let html = fs.readFileSync(path, 'utf-8');
-    // Parse the HTML string with JSDOM
-    const dom = new JSDOM(html);
-    const document = dom.window.document;
+    // Load the HTML string into cheerio
+    const $ = cheerio.load(html, { xmlMode: true });
     // Find all elements in the HTML tree
-    const elements = document.querySelectorAll('*');
+    const elements = $('*');
     // Get the list of ignored tags from the conf.json file
     const ignoredTags = getIgnoredTags()['ignoredTags'];
     // Loop through each element and add a unique "data-cy" attribute if it doesn't already have one
-    for (const element of elements) {
+    elements.each((index, element) => {
+        const tagName = element.tagName.toLowerCase();
         // Check if the element has a "data-cy"
-        if (!element.hasAttribute('data-cy') && !ignoredTags.includes(element.tagName.toLowerCase())) {
+        if (!$(element).attr('data-cy') && !ignoredTags.includes(tagName)) {
             // Add a unique "data-cy" attribute
-            element.setAttribute('data-cy', uuid.v4());
+            $(element).attr('data-cy', uuid.v4());
         }
-    }
+    });
+    // Get the HTML string
+    let updatedHtml = $.html();
+    // Replace attributes with empty values (="" or ='')
+    updatedHtml = updatedHtml.replace(/=('|")\1/g, ' ');
     //format the HTML string
-    const formatted = prettier.format(dom.serialize(), { parser: 'html' });
+    const formatted = prettier.format(updatedHtml, { parser: 'html' });
     // Write the updated HTML back to the file
     fs.writeFileSync(path, formatted, 'utf-8');
 }
